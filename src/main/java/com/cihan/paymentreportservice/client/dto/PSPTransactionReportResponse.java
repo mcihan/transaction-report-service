@@ -7,9 +7,7 @@ import java.util.List;
 
 public record PSPTransactionReportResponse(
         String status,
-        List<TransactionReportData> response,
-        int merchant,
-        int acquirer) {
+        List<TransactionReportData> response) {
 
 }
 
