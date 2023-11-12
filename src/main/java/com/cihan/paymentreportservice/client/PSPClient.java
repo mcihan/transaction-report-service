@@ -1,11 +1,13 @@
 package com.cihan.paymentreportservice.client;
 
 import com.cihan.paymentreportservice.client.dto.*;
+import feign.QueryMap;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "PSPClient", url = "https://sandbox-reporting.rpdpymnt.com/api/v3")
 public interface PSPClient {
@@ -18,6 +20,9 @@ public interface PSPClient {
 
     @PostMapping(value = "/transaction", consumes = MediaType.APPLICATION_JSON_VALUE)
     PSPTransactionResponse getTransaction(@RequestHeader("Authorization") String Authorization, @RequestBody PSPTransactionRequest transactionRequest);
+
+    @PostMapping(value = "/transactions/report", consumes = MediaType.APPLICATION_JSON_VALUE)
+    PSPTransactionReportResponse getTransactionReport(@RequestHeader("Authorization") String Authorization,  @QueryMap PSPTransactionReportRequest transactionReportRequest);
 
 
 }

@@ -8,6 +8,6 @@ public record Agent(
         String merchantUserAgent,
         String created_at,
         String updated_at,
-        Object deleted_at
+        String deleted_at
 ) {
 }
