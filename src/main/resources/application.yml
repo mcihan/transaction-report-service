@@ -1,5 +1,6 @@
 psp:
   url: https://sandbox-reporting.rpdpymnt.com/api/v3
+  authentication-token-expire-time: 585000 # 9 min 45 second
   credentials:
     email: demo@financialhouse.io
     password: cjaiU8CV
