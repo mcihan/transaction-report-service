@@ -4,3 +4,8 @@ psp:
     email: demo@financialhouse.io
     password: cjaiU8CV
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
