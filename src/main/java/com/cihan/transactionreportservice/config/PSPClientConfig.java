@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class FeignClientInterceptorConfig {
+public class PSPClientConfig {
 
     @Value("${psp.credentials.email}")
     String email;

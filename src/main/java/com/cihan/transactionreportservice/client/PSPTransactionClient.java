@@ -1,14 +1,14 @@
 package com.cihan.transactionreportservice.client;
 
 import com.cihan.transactionreportservice.client.dto.*;
-import com.cihan.transactionreportservice.config.FeignClientInterceptorConfig;
+import com.cihan.transactionreportservice.config.PSPClientConfig;
 import feign.QueryMap;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "PSPClient", url = "${psp.url}", configuration = FeignClientInterceptorConfig.class)
+@FeignClient(name = "PSPClient", url = "${psp.url}", configuration = PSPClientConfig.class)
 public interface PSPTransactionClient {
 
     @PostMapping("/merchant/user/login")
