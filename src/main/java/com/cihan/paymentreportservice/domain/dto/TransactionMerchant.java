@@ -1,4 +1,4 @@
-package com.cihan.paymentreportservice.client.dto;
+package com.cihan.paymentreportservice.domain.dto;
 
 public record TransactionMerchant(
         String referenceNo,

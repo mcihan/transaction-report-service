@@ -1,5 +1,6 @@
 package com.cihan.paymentreportservice.client.dto;
 
+import com.cihan.paymentreportservice.domain.dto.TransactionListData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

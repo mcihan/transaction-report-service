@@ -1,8 +1,8 @@
 package com.cihan.paymentreportservice.config;
 
-import com.cihan.paymentreportservice.controller.dto.LoginResponse;
-import com.cihan.paymentreportservice.domain.dto.LoginDto;
-import com.cihan.paymentreportservice.service.LoginService;
+import com.cihan.paymentreportservice.domain.dto.LoginRequest;
+import com.cihan.paymentreportservice.domain.dto.LoginResponse;
+import com.cihan.paymentreportservice.service.AuthenticationService;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.RequiredArgsConstructor;
@@ -10,12 +10,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PSPTransactionRequestInterceptor implements RequestInterceptor {
 	
-    private final LoginService loginService;
-    private final LoginDto loginDto;
+    private final AuthenticationService authenticationService;
+    private final LoginRequest loginRequest;
 
     @Override
     public void apply(RequestTemplate template) {
-        LoginResponse loginData = loginService.login(loginDto);
+        LoginResponse loginData = authenticationService.authenticate(loginRequest);
         template.header("Authorization", loginData.token());
     }
 }

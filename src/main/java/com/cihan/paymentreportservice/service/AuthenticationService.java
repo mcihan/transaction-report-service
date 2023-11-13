@@ -3,9 +3,9 @@ package com.cihan.paymentreportservice.service;
 import com.cihan.paymentreportservice.client.PSPLoginClient;
 import com.cihan.paymentreportservice.client.dto.PSPLoginRequest;
 import com.cihan.paymentreportservice.client.dto.PSPLoginResponse;
-import com.cihan.paymentreportservice.controller.dto.LoginResponse;
-import com.cihan.paymentreportservice.domain.dto.LoginDto;
-import com.cihan.paymentreportservice.mapper.LoginMapper;
+import com.cihan.paymentreportservice.domain.dto.LoginResponse;
+import com.cihan.paymentreportservice.domain.dto.LoginRequest;
+import com.cihan.paymentreportservice.mapper.DtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -14,16 +14,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class LoginService {
+public class AuthenticationService {
     static final long TOKEN_CACHE_EXPIRE =  10 * 60  * 1000;  // token cached for 10 minutes
     private final PSPLoginClient pspClient;
-    private final LoginMapper loginMapper;
+    private final DtoMapper dtoMapper;
 
     @Cacheable("token")
-    public LoginResponse login(LoginDto loginDto) {
-        PSPLoginRequest pspLoginRequest = loginMapper.toPSPLoginRequest(loginDto);
+    public LoginResponse authenticate(LoginRequest loginRequest) {
+        PSPLoginRequest pspLoginRequest = dtoMapper.toPSPLoginRequest(loginRequest);
         PSPLoginResponse pspLoginResponse = pspClient.login(pspLoginRequest);
-        return loginMapper.toLoginDto(pspLoginResponse);
+        return dtoMapper.toLoginDto(pspLoginResponse);
     }
 
     @Scheduled(fixedRate = TOKEN_CACHE_EXPIRE)

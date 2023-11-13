@@ -1,7 +1,7 @@
 package com.cihan.paymentreportservice.config;
 
-import com.cihan.paymentreportservice.domain.dto.LoginDto;
-import com.cihan.paymentreportservice.service.LoginService;
+import com.cihan.paymentreportservice.domain.dto.LoginRequest;
+import com.cihan.paymentreportservice.service.AuthenticationService;
 import feign.RequestInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -19,8 +19,8 @@ public class FeignClientInterceptorConfig {
 
 
     @Bean
-    public RequestInterceptor PSPTransactionRequestInterceptor(LoginService loginService) {
-        return new PSPTransactionRequestInterceptor(loginService, new LoginDto(email, password));
+    public RequestInterceptor PSPTransactionRequestInterceptor(AuthenticationService authenticationService) {
+        return new PSPTransactionRequestInterceptor(authenticationService, new LoginRequest(email, password));
     }
 
 }
