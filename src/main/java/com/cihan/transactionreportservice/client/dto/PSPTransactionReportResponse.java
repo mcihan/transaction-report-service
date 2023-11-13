@@ -1,5 +1,6 @@
 package com.cihan.transactionreportservice.client.dto;
 
+import com.cihan.transactionreportservice.domain.dto.Status;
 import com.cihan.transactionreportservice.domain.dto.TransactionReportData;
 import java.util.List;
 

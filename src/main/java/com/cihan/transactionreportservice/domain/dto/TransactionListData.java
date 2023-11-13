@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public record TransactionListData(
         Fx fx,
         TransactionListCustomer customerInfo,
-        @JsonProperty("updated_at")
+        @JsonProperty("updatedAt")
         String updatedAt,
         @JsonProperty("created_at")
         String createdAt,

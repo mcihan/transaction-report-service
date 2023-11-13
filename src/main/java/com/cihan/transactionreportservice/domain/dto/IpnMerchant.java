@@ -10,7 +10,7 @@ public record IpnMerchant(
         String message,
         String operation,
         String type,
-        String status,
+        Status status,
         Object customData,
         String chainId,
         String paymentType,

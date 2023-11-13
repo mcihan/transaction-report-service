@@ -1,4 +1,16 @@
 package com.cihan.transactionreportservice.controller.dto;
 
-public record LoginRequest (String email,String password){}
+
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+
+public record LoginRequest (
+        @NotBlank
+        @Max(128)
+        String email,
+
+        @NotBlank
+        @Max(32)
+        String password
+){}
 
