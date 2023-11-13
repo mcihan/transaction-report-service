@@ -6,17 +6,16 @@ import com.cihan.paymentreportservice.service.LoginService;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
-public class AuthRequestInterceptor implements RequestInterceptor {
+public class PSPTransactionRequestInterceptor implements RequestInterceptor {
 	
     private final LoginService loginService;
+    private final LoginDto loginDto;
 
     @Override
     public void apply(RequestTemplate template) {
-        LoginResponse loginData = loginService.login(new LoginDto("demo@financialhouse.io", "cjaiU8CV"));
+        LoginResponse loginData = loginService.login(loginDto);
         template.header("Authorization", loginData.token());
     }
 }

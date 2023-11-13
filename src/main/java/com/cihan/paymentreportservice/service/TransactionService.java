@@ -1,11 +1,11 @@
 package com.cihan.paymentreportservice.service;
 
-import com.cihan.paymentreportservice.client.PSPClient;
+import com.cihan.paymentreportservice.client.PSPTransactionClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class TransactionService {
-    private final PSPClient pspClient;
+    private final PSPTransactionClient pspTransactionClient;
 }

@@ -10,15 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/customer")
 @RequiredArgsConstructor
 public class CustomerController {
-
     private final CustomerService customerService;
 
-
     @GetMapping
-    public ResponseEntity<CustomerDetailResponse> getCustomerDetail(@RequestHeader("Authorization") String token,
-                                                                    @RequestParam("transactionId") String transactionId) {
-
-        CustomerDetailResponse customerDetail = customerService.getCustomerDetail(token, transactionId);
+    public ResponseEntity<CustomerDetailResponse> getCustomerDetail(@RequestParam("transactionId") String transactionId) {
+        CustomerDetailResponse customerDetail = customerService.getCustomerDetail(transactionId);
         return ResponseEntity.ok(customerDetail);
     }
 }

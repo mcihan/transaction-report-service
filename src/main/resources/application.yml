@@ -1,0 +1,6 @@
+psp:
+  url: https://sandbox-reporting.rpdpymnt.com/api/v3
+  credentials:
+    email: demo@financialhouse.io
+    password: cjaiU8CV
+
