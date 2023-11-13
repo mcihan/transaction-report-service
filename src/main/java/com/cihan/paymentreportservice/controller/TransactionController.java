@@ -1,10 +1,7 @@
 package com.cihan.paymentreportservice.controller;
 
 import com.cihan.paymentreportservice.client.PSPClient;
-import com.cihan.paymentreportservice.client.dto.PSPTransactionReportRequest;
-import com.cihan.paymentreportservice.client.dto.PSPTransactionReportResponse;
-import com.cihan.paymentreportservice.client.dto.PSPTransactionRequest;
-import com.cihan.paymentreportservice.client.dto.PSPTransactionResponse;
+import com.cihan.paymentreportservice.client.dto.*;
 import feign.QueryMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +22,18 @@ public class TransactionController {
     }
 
     @GetMapping("/report")
-    public ResponseEntity<PSPTransactionReportResponse> getTransactionReport(@RequestHeader("Authorization") String authorization, @QueryMap PSPTransactionReportRequest request) {
+    public ResponseEntity<PSPTransactionReportResponse> getTransactionReport(@RequestHeader("Authorization") String authorization,
+                                                                             @QueryMap PSPTransactionReportRequest request) {
         PSPTransactionReportResponse transactionReport = pspClient.getTransactionReport(authorization, request);
         return ResponseEntity.ok(transactionReport);
     }
+
+    @GetMapping("/query")
+    public ResponseEntity<PSPTransactionListResponse> getTransactionsByQuery(@RequestHeader("Authorization") String authorization,
+                                                                             @QueryMap PSPTransactionListRequest request) {
+        PSPTransactionListResponse transactionReport = pspClient.getTransactionByQuery(authorization, request);
+        return ResponseEntity.ok(transactionReport);
+    }
+
 
 }

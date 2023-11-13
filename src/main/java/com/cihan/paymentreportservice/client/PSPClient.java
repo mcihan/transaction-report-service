@@ -23,7 +23,7 @@ public interface PSPClient {
     @PostMapping(value = "/transactions/report", consumes = MediaType.APPLICATION_JSON_VALUE)
     PSPTransactionReportResponse getTransactionReport(@RequestHeader("Authorization") String Authorization,  @QueryMap PSPTransactionReportRequest transactionReportRequest);
 
-    @PostMapping(value = "/transactions/report", consumes = MediaType.APPLICATION_JSON_VALUE)
-    PSPTransactionReportResponse getTransactionReport2(@QueryMap PSPTransactionReportRequest request, @RequestHeader("Authorization") String Authorization);
+    @PostMapping(value = "/transaction/list", consumes = MediaType.APPLICATION_JSON_VALUE)
+    PSPTransactionListResponse getTransactionByQuery(@RequestHeader("Authorization") String Authorization, @QueryMap PSPTransactionListRequest request);
 
 }
