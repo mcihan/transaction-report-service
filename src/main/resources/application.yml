@@ -1,9 +1,9 @@
 psp:
-  url: https://sandbox-reporting.rpdpymnt.com/api/v3
+  url: '${PSP_CLIENT_URL:https://sandbox-reporting.rpdpymnt.com/api/v3}'
   authentication-token-expire-time: 585000 # 9 min 45 second
   credentials:
-    email: demo@financialhouse.io
-    password: cjaiU8CV
+    email: '${PSP_CLIENT_EMAIL:demo@financialhouse.io}'
+    password: '${PSP_CLIENT_PASSWORD:cjaiU8CV}'
 
 springdoc:
   api-docs:
