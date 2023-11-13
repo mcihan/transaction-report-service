@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cihan</groupId>
-    <artifactId>payment-report-service</artifactId>
+    <artifactId>transaction-report-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>payment-report-service</name>
-    <description>payment-report-service</description>
+    <name>transaction-report-service</name>
+    <description>transaction-report-service</description>
     <properties>
         <java.version>21</java.version>
 <!--        <springCloudVersion>2022.0.0-M5</springCloudVersion>-->
