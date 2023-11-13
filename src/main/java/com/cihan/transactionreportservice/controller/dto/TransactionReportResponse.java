@@ -7,4 +7,5 @@ import java.util.List;
 public record TransactionReportResponse(
         String status,
         List<TransactionReportData> response) {
+
 }

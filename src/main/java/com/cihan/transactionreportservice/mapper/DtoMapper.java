@@ -21,6 +21,9 @@ public interface DtoMapper {
     @Mapping(source = "toDate", target = "toDate", qualifiedByName = "getFormattedDate")
     @Mapping(source = "fromDate", target = "fromDate", qualifiedByName = "getFormattedDate")
     PSPTransactionReportRequest toPSPRequest(TransactionReportRequest request);
+
+    @Mapping(source = "toDate", target = "toDate", qualifiedByName = "getFormattedDate")
+    @Mapping(source = "fromDate", target = "fromDate", qualifiedByName = "getFormattedDate")
     PSPTransactionListRequest toPSPRequest(TransactionListRequest request);
     TransactionListResponse toResponse(PSPTransactionListResponse response);
     TransactionReportResponse toResponse(PSPTransactionReportResponse response);
