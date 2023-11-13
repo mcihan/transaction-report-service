@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "PSPClient", url = "${psp.url}", configuration = PSPClientConfig.class)
+@FeignClient(name = "PSPClient", url = "${psp-client.url}", configuration = PSPClientConfig.class)
 public interface PSPTransactionClient {
 
     @PostMapping("/merchant/user/login")

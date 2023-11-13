@@ -15,7 +15,6 @@
     <description>transaction-report-service</description>
     <properties>
         <java.version>21</java.version>
-        <!--        <springCloudVersion>2022.0.0-M5</springCloudVersion>-->
     </properties>
     <dependencies>
         <dependency>

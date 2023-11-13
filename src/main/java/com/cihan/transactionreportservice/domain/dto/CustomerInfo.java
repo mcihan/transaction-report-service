@@ -1,7 +1,9 @@
 package com.cihan.transactionreportservice.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
+@Builder
 public record CustomerInfo(
         String billingFirstName,
         String billingLastName,

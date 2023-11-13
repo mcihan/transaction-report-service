@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "PSPLoginClient", url = "${psp.url}")
+@FeignClient(name = "PSPLoginClient", url = "${psp-client.url}")
 public interface PSPLoginClient {
 
     @PostMapping("/merchant/user/login")

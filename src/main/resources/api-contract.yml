@@ -1,0 +1,467 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /api/v1/transaction:
+    get:
+      tags:
+        - transaction-controller
+      operationId: getTransaction
+      parameters:
+        - name: transactionId
+          in: query
+          required: true
+          schema:
+            maximum: 32
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TransactionResponse'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/v1/transaction/report:
+    get:
+      tags:
+        - transaction-controller
+      operationId: getTransactionReport
+      parameters:
+        - name: request
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/TransactionReportRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TransactionReportResponse'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/v1/transaction/query:
+    get:
+      tags:
+        - transaction-controller
+      operationId: getTransactionsByQuery
+      parameters:
+        - name: request
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/TransactionListRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TransactionListResponse'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: string
+  /api/v1/customer:
+    get:
+      tags:
+        - customer-controller
+      operationId: getCustomerDetail
+      parameters:
+        - name: transactionId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomerDetailResponse'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    Agent:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        customerIp:
+          type: string
+        customerUserAgent:
+          type: string
+        merchantIp:
+          type: string
+        merchantUserAgent:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        deleted_at:
+          type: string
+    CustomerInfo:
+      type: object
+      properties:
+        updated_at:
+          type: string
+        created_at:
+          type: string
+        billingFirstName:
+          type: string
+        billingLastName:
+          type: string
+        email:
+          type: string
+        billingCompany:
+          type: string
+        billingCity:
+          type: string
+        id:
+          type: integer
+          format: int32
+        billingAddress1:
+          type: object
+    Fx:
+      type: object
+      properties:
+        merchant:
+          $ref: '#/components/schemas/FxMerchant'
+    FxMerchant:
+      type: object
+      properties:
+        originalAmount:
+          type: integer
+        originalCurrency:
+          type: string
+    Merchant:
+      type: object
+      properties:
+        name:
+          type: string
+    Transaction:
+      type: object
+      properties:
+        merchant:
+          $ref: '#/components/schemas/TransactionMerchant'
+    TransactionMerchant:
+      type: object
+      properties:
+        referenceNo:
+          type: string
+        merchantId:
+          type: integer
+          format: int32
+        status:
+          type: string
+        channel:
+          type: string
+        customData:
+          type: object
+        chainId:
+          type: string
+        type:
+          type: string
+        agentInfoId:
+          type: integer
+          format: int32
+        operation:
+          type: string
+        updated_at:
+          type: string
+        created_at:
+          type: string
+        id:
+          type: integer
+          format: int32
+        fxTransactionId:
+          type: integer
+          format: int32
+        acquirerTransactionId:
+          type: integer
+          format: int32
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        transactionId:
+          type: string
+        agent:
+          $ref: '#/components/schemas/Agent'
+    TransactionResponse:
+      type: object
+      properties:
+        fx:
+          $ref: '#/components/schemas/Fx'
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+        customerInfo:
+          $ref: '#/components/schemas/CustomerInfo'
+        merchant:
+          $ref: '#/components/schemas/Merchant'
+    TransactionReportRequest:
+      required:
+        - fromDate
+        - toDate
+      type: object
+      properties:
+        fromDate:
+          type: string
+          format: date
+        toDate:
+          type: string
+          format: date
+        merchant:
+          type: integer
+          format: int32
+        acquirer:
+          type: integer
+          format: int32
+    TransactionReportData:
+      type: object
+      properties:
+        count:
+          type: string
+        total:
+          type: string
+        currency:
+          type: string
+    TransactionReportResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        response:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionReportData'
+    TransactionListRequest:
+      required:
+        - fromDate
+        - toDate
+      type: object
+      properties:
+        fromDate:
+          type: string
+          format: date
+        toDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - APPROVED
+            - WAITING
+            - DECLINE
+            - ERROR
+        operation:
+          type: string
+        merchantId:
+          type: integer
+          format: int32
+        acquirerId:
+          type: integer
+          format: int32
+        paymentMethod:
+          type: string
+          enum:
+            - CREDITCARD
+            - CUP
+            - IDEAL
+            - GIROPAY
+            - MISTERCASH
+            - STORED
+            - PAYTOCARD
+            - CEPBANK
+            - CITADEL
+        errorCode:
+          type: string
+        filterField:
+          type: string
+        filterValue:
+          type: string
+        page:
+          type: integer
+          format: int32
+    Acquirer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        code:
+          type: string
+        type:
+          type: string
+    Ipn:
+      type: object
+      properties:
+        sent:
+          type: boolean
+        merchant:
+          $ref: '#/components/schemas/IpnMerchant'
+    IpnMerchant:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        referenceNo:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        currency:
+          type: string
+        date:
+          type: integer
+          format: int32
+        code:
+          type: string
+        message:
+          type: string
+        operation:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+          enum:
+            - APPROVED
+            - WAITING
+            - DECLINE
+            - ERROR
+        customData:
+          type: object
+        chainId:
+          type: string
+        paymentType:
+          type: string
+        token:
+          type: string
+        convertedAmount:
+          type: integer
+          format: int32
+        convertedCurrency:
+          type: string
+        iPNUrl:
+          type: string
+        ipnType:
+          type: string
+        authTransactionId:
+          type: string
+    TransactionListCustomer:
+      type: object
+      properties:
+        email:
+          type: string
+        billingFirstName:
+          type: string
+    TransactionListData:
+      type: object
+      properties:
+        updatedAt:
+          type: string
+        created_at:
+          type: string
+        fx:
+          $ref: '#/components/schemas/Fx'
+        customerInfo:
+          $ref: '#/components/schemas/TransactionListCustomer'
+        acquirer:
+          $ref: '#/components/schemas/Acquirer'
+        transaction:
+          $ref: '#/components/schemas/Transaction'
+        refundable:
+          type: boolean
+        merchant:
+          $ref: '#/components/schemas/Merchant'
+        ipn:
+          $ref: '#/components/schemas/Ipn'
+    TransactionListResponse:
+      type: object
+      properties:
+        perPage:
+          type: integer
+          format: int32
+        currentPage:
+          type: integer
+          format: int32
+        nextPageUrl:
+          type: string
+        prevPageUrl:
+          type: object
+        from:
+          type: integer
+          format: int32
+        to:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionListData'
+    CustomerDetailResponse:
+      type: object
+      properties:
+        customerInfo:
+          $ref: '#/components/schemas/CustomerInfo'

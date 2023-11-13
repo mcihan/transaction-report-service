@@ -29,7 +29,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return dtoMapper.toLoginDto(pspLoginResponse);
     }
 
-    @Scheduled(fixedRateString ="${psp.authentication-token-expire-time}")
+    @Scheduled(fixedRateString ="${psp-client.authentication-token-expire-time}")
     @CacheEvict(value = "token", allEntries = true)
     public void refresh() {
         log.info("Token Cache Evicted!");

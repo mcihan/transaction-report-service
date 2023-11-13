@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PSPClientConfig {
 
-    @Value("${psp.credentials.email}")
+    @Value("${psp-client.credentials.email}")
     String email;
 
 
-    @Value("${psp.credentials.password}")
+    @Value("${psp-client.credentials.password}")
     String password;
 
 
