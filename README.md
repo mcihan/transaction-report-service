@@ -3,7 +3,7 @@
 ## Tech Stack
 
 - Java21
-- SpringBoot 3.1.1
+- SpringBoot 3.1.5
 - Open API
 - MapStruct
 
