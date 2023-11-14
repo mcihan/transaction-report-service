@@ -1,5 +1,7 @@
 # Transaction Report Service
 
+- 🚀 **Live URL : https://transaction-report-service.onrender.com/swagger-ui/index.html**
+
 ## Tech Stack
 
 - Java21 
@@ -19,7 +21,8 @@
   the call.
   The token will be cached for a duration of 9 minutes and 45 seconds. Upon expiration, it will be evicted, and a new
   token will be provided.
-- Access swagger ui to test api after run project. http://localhost:8080/swagger-ui/index.html
+
+- **Local test:** access swagger ui to test api after run project http://localhost:8080/swagger-ui/index.html
 - Please find api-contract.yml [here](src/main/resources/api-contract.yml)
 
 <br/> 
@@ -38,23 +41,7 @@
 ### Overall
 
 ![img.png](doc/swagger.png)
-
-### Get Transaction
-
-![img.png](doc/get-transaction.png)
-
-### Transaction Report
-
-![img.png](doc/transaction-report,png)
-
-### Transaction Query
-
-![img.png](doc/transaction-query.png)
-
-
-### Get Customer Details
-
-![img.png](doc/customer-details.png)
+ 
 
 ## TODO
 
