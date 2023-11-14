@@ -30,7 +30,7 @@ Try out the API live using Swagger dashboard;
 
 
 
-![img.png](swagger-try.png)
+![img.png](doc/swagger-try.png)
 
 ### Endpoints
 
