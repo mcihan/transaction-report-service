@@ -1,21 +1,11 @@
 # Transaction Report Service
 
+**The Transaction Report Service** consumes the PSP client API and delivers transaction reports.
+
 Try out the API live using Swagger dashboard;  
 
 🚀 **Live URL : https://transaction-report-service.onrender.com/swagger-ui/index.html**
 
-
-**Test Data**
-
-| Key           | Value                 |
-|---------------|-----------------------|
-| transactionId | 981862-1499180435-111 |
-| fromDate      | 2016-01-01            |
-| toDate        | 2023-11-13            |
-
-<br/>
-
-**The Transaction Report Service** consumes the PSP client API and delivers transaction reports.
 
 ## Tech Stack
 
@@ -38,19 +28,20 @@ Try out the API live using Swagger dashboard;
 - **Local test:** Access Swagger UI to test the API after running the project at http://localhost:8080/swagger-ui/index.html
 - Please find api-contract.yml [here](src/main/resources/api-contract.yml)
 
-<br/> 
 
- 
 
-### Overall
+![img.png](swagger-try.png)
+
+### Endpoints
 
 ![img.png](doc/swagger.png)
- 
 
+ 
 ## TODO
 
-- FeignClient Decoder/Deserializer for different TransactionLists
+- Add FeignClient decoder/deserializer for variousTransactionQueryResponse types.
 - api-key for secure service-to-service communication
+- Improve field types. and some fields still have underscores; remove the underscores.
 - Fail test scenarios.
-- Remove underscore from response dtos.
+
 
