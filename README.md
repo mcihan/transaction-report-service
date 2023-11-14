@@ -13,7 +13,7 @@
 
 <br/>
 
-The Transaction Report Service consumes the PSP client API and delivers transaction reports.
+**The Transaction Report Service** consumes the PSP client API and delivers transaction reports.
 
 ## Tech Stack
 
@@ -23,18 +23,17 @@ The Transaction Report Service consumes the PSP client API and delivers transact
 - MapStruct
 
 ## About PSP Client API
-
-- The PSP Client API token remains valid for a duration of 10 minutes.
-- This token is cached for **9 minutes and 45 seconds** (15 sec buffer to avoid a staled token), and it is automatically
-  added as an authorization header to each request through an interceptor.
+- The Transaction Report Service consumes the PSP client API and delivers transaction reports.
+- Following authorization to the PSP API, an access token is generated and remains valid for 10 minutes.
+-The **Transaction Report Service** caches this token for **9 minutes and 45 seconds** (with a 15-second buffer to avoid using a stale token) and automatically adds it as an authorization header to each request for the PSP API through an interceptor.
 
 ## Run/Testing the Application
 
 - **No manual login/authentication is required**. In the absence of a token, interceptors will automatically set it during
   the call.
-  The token will be cached for a duration of 9 minutes and 45 seconds. Upon expiration, it will be evicted, and a new
+- The token will be cached for a duration of 9 minutes and 45 seconds. Upon expiration, it will be evicted, and a new
   token will be provided.
-- **Local test:** access swagger ui to test api after run project http://localhost:8080/swagger-ui/index.html
+- **Local test:** Access Swagger UI to test the API after running the project at http://localhost:8080/swagger-ui/index.html
 - Please find api-contract.yml [here](src/main/resources/api-contract.yml)
 
 <br/> 
