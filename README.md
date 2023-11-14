@@ -47,6 +47,7 @@
 
 ## TODO
 
+- FeignClient Decoder/Deserializer for different TransactionLists
 - api-key for secure service-to-service communication
 - Fail test scenarios.
 - Remove underscore from response dtos.
