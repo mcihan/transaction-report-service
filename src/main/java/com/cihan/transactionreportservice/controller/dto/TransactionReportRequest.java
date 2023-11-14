@@ -1,6 +1,7 @@
 package com.cihan.transactionreportservice.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,6 +17,9 @@ public record TransactionReportRequest(
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
         @JsonFormat(pattern = "YYYY-MM-DD")
         LocalDate toDate,
+
+        @Min(1)
         Integer merchant,
+        @Min(1)
         Integer acquirer) {
 }

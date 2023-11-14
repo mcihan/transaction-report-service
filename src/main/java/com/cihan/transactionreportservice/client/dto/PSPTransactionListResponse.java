@@ -14,6 +14,8 @@ public record PSPTransactionListResponse(
         Integer perPage,
         @JsonProperty("current_page")
         Integer currentPage,
+        @JsonProperty("first_page_url")
+        String firstPageUrl,
         @JsonProperty("next_page_url")
         String nextPageUrl,
         @JsonProperty("prev_page_url")

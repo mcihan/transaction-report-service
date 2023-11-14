@@ -7,6 +7,7 @@ import java.util.List;
 public record TransactionListResponse(
         Integer perPage,
         Integer currentPage,
+        String firstPageUrl,
         String nextPageUrl,
         String prevPageUrl,
         Integer from,

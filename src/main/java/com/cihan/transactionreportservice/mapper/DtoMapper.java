@@ -4,16 +4,15 @@ import com.cihan.transactionreportservice.client.dto.*;
 import com.cihan.transactionreportservice.controller.dto.*;
 import com.cihan.transactionreportservice.domain.dto.LoginRequest;
 import com.cihan.transactionreportservice.domain.dto.LoginResponse;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import com.cihan.transactionreportservice.domain.dto.PaymentMethod;
+import com.cihan.transactionreportservice.domain.dto.Status;
+import org.mapstruct.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Mapper(componentModel = "spring")
 public interface DtoMapper {
-    LoginRequest toLoginDto(com.cihan.transactionreportservice.controller.dto.LoginRequest loginRequest);
     LoginResponse toLoginDto(PSPLoginResponse pspLoginResponse);
     PSPLoginRequest toPSPLoginRequest(LoginRequest loginRequest);
     CustomerDetailResponse toCustomerDetailResponse(PSPCustomerResponse loginDto);
@@ -24,6 +23,8 @@ public interface DtoMapper {
 
     @Mapping(source = "toDate", target = "toDate", qualifiedByName = "getFormattedDate")
     @Mapping(source = "fromDate", target = "fromDate", qualifiedByName = "getFormattedDate")
+    @Mapping(source = "paymentMethod", target = "paymentMethod", qualifiedByName = "getPaymentMethod", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+    @Mapping(source = "status", target = "status", qualifiedByName = "getStatus", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
     PSPTransactionListRequest toPSPRequest(TransactionListRequest request);
     TransactionListResponse toResponse(PSPTransactionListResponse response);
     TransactionReportResponse toResponse(PSPTransactionReportResponse response);
@@ -33,6 +34,14 @@ public interface DtoMapper {
     @Named("getFormattedDate")
     default String getFormattedDate(LocalDate date) {
         return date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
+    @Named("getPaymentMethod")
+    default String getPaymentMethod(PaymentMethod paymentMethod) {
+        return paymentMethod.name();
+    }
+    @Named("getStatus")
+    default String getStatus(Status status) {
+        return status.name();
     }
 
 
