@@ -39,7 +39,7 @@ public class CustomExceptionHandler {
 
         record ErrorResponse(String errorCode, String errorMessage) {
         }
-
+e.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(new ErrorResponse("PSP-01", "PSP Client Error"));
     }

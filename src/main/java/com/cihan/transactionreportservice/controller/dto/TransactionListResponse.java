@@ -8,7 +8,7 @@ public record TransactionListResponse(
         Integer perPage,
         Integer currentPage,
         String nextPageUrl,
-        Object prevPageUrl,
+        String prevPageUrl,
         Integer from,
         Integer to,
         List<TransactionListData> data) {

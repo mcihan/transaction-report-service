@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "PSPClient", url = "${psp-client.url}", configuration = PSPClientConfig.class)
 public interface PSPTransactionClient {
 
-    @PostMapping("/merchant/user/login")
-    PSPLoginResponse login(@RequestBody PSPLoginRequest pSPLoginRequest);
-
     @PostMapping(value = "/client", consumes = MediaType.APPLICATION_JSON_VALUE)
     PSPCustomerResponse getCustomer(@RequestBody PSPCustomerRequest pspCustomerRequest);
 
