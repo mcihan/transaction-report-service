@@ -1,5 +1,7 @@
 # Transaction Report Service
 
+Try out the API live using Swagger dashboard;  
+
 🚀 **Live URL : https://transaction-report-service.onrender.com/swagger-ui/index.html**
 
 
@@ -28,7 +30,7 @@
 -The **Transaction Report Service** caches this token for **9 minutes and 45 seconds** (with a 15-second buffer to avoid using a stale token) and automatically adds it as an authorization header to each request for the PSP API through an interceptor.
 
 ## Run/Testing the Application
-
+- You can try out the API live using Swagger. Live URL : https://transaction-report-service.onrender.com/swagger-ui/index.html
 - **No manual login/authentication is required**. In the absence of a token, interceptors will automatically set it during
   the call.
 - The token will be cached for a duration of 9 minutes and 45 seconds. Upon expiration, it will be evicted, and a new
