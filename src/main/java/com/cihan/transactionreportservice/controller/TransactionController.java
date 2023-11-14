@@ -4,6 +4,7 @@ import com.cihan.transactionreportservice.controller.dto.*;
 import com.cihan.transactionreportservice.mapper.DtoMapper;
 import com.cihan.transactionreportservice.service.TransactionService;
 import feign.QueryMap;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
@@ -23,7 +24,13 @@ public class TransactionController {
     private final DtoMapper dtoMapper;
 
     @GetMapping
-    public ResponseEntity<TransactionResponse> getTransaction(@RequestParam("transactionId") @Valid @NotBlank @Max(32) String transactionId) {
+    public ResponseEntity<TransactionResponse> getTransaction(@RequestParam("transactionId")
+                                                              @Valid
+                                                              @NotBlank
+                                                              @Max(32)
+                                                              @Schema(type = "string", example = "981862-1499180435-111")
+                                                              String transactionId) {
+
         TransactionResponse response = transactionService.getTransaction(transactionId);
         return ResponseEntity.ok(response);
     }
