@@ -1,10 +1,12 @@
 package com.cihan.transactionreportservice.service;
 
 import com.cihan.transactionreportservice.client.PSPTransactionClient;
-import com.cihan.transactionreportservice.client.dto.*;
-import com.cihan.transactionreportservice.controller.dto.TransactionListResponse;
-import com.cihan.transactionreportservice.controller.dto.TransactionReportResponse;
-import com.cihan.transactionreportservice.controller.dto.TransactionResponse;
+import com.cihan.transactionreportservice.client.response.*;
+import com.cihan.transactionreportservice.client.request.PSPTransactionListRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionReportRequest;
+import com.cihan.transactionreportservice.controller.response.TransactionQueryResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionReportResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionResponse;
 import com.cihan.transactionreportservice.domain.dto.Merchant;
 import com.cihan.transactionreportservice.domain.dto.Status;
 import com.cihan.transactionreportservice.mapper.DtoMapperImpl;
@@ -76,7 +78,7 @@ class TransactionServiceTest {
                 .build();
 
         when(pspTransactionClient.getTransactionByQuery(pspRequest)).thenReturn(pspResponse);
-        TransactionListResponse transactionsByQuery = transactionService.getTransactionsByQuery(pspRequest);
+        TransactionQueryResponse transactionsByQuery = transactionService.getTransactionsByQuery(pspRequest);
 
         assertEquals(pageUrl, transactionsByQuery.nextPageUrl());
 

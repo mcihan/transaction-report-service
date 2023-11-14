@@ -1,4 +1,4 @@
-package com.cihan.transactionreportservice.controller.exception;
+package com.cihan.transactionreportservice.exception;
 
 import feign.FeignException;
 import jakarta.servlet.http.HttpServletResponse;

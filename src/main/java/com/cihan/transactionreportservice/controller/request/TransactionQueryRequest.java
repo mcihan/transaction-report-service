@@ -1,4 +1,4 @@
-package com.cihan.transactionreportservice.controller.dto;
+package com.cihan.transactionreportservice.controller.request;
 
 import com.cihan.transactionreportservice.domain.dto.PaymentMethod;
 import com.cihan.transactionreportservice.domain.dto.Status;
@@ -10,7 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @Schema
-public record TransactionListRequest(
+public record TransactionQueryRequest(
 
         @NotNull(message = "fromDate is mandatory")
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

@@ -8,7 +8,7 @@ import feign.RequestTemplate;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class PSPTransactionRequestInterceptor implements RequestInterceptor {
+public class PSPClientRequestInterceptor implements RequestInterceptor {
 	
     private final AuthenticationService authenticationService;
     private final LoginRequest loginRequest;

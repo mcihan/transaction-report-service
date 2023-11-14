@@ -1,6 +1,10 @@
 package com.cihan.transactionreportservice.client;
 
-import com.cihan.transactionreportservice.client.dto.*;
+import com.cihan.transactionreportservice.client.response.*;
+import com.cihan.transactionreportservice.client.request.PSPCustomerRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionListRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionReportRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionRequest;
 import com.cihan.transactionreportservice.config.PSPClientConfig;
 import feign.QueryMap;
 import org.springframework.cloud.openfeign.FeignClient;

@@ -1,9 +1,9 @@
 package com.cihan.transactionreportservice.service.impl;
 
 import com.cihan.transactionreportservice.client.PSPTransactionClient;
-import com.cihan.transactionreportservice.client.dto.PSPCustomerRequest;
-import com.cihan.transactionreportservice.client.dto.PSPCustomerResponse;
-import com.cihan.transactionreportservice.controller.dto.CustomerDetailResponse;
+import com.cihan.transactionreportservice.client.request.PSPCustomerRequest;
+import com.cihan.transactionreportservice.client.response.PSPCustomerResponse;
+import com.cihan.transactionreportservice.controller.response.CustomerDetailResponse;
 import com.cihan.transactionreportservice.mapper.DtoMapper;
 import com.cihan.transactionreportservice.service.CustomerService;
 import lombok.RequiredArgsConstructor;

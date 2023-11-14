@@ -1,10 +1,13 @@
 package com.cihan.transactionreportservice.service.impl;
 
 import com.cihan.transactionreportservice.client.PSPTransactionClient;
-import com.cihan.transactionreportservice.client.dto.*;
-import com.cihan.transactionreportservice.controller.dto.TransactionListResponse;
-import com.cihan.transactionreportservice.controller.dto.TransactionReportResponse;
-import com.cihan.transactionreportservice.controller.dto.TransactionResponse;
+import com.cihan.transactionreportservice.client.response.*;
+import com.cihan.transactionreportservice.client.request.PSPTransactionListRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionReportRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionRequest;
+import com.cihan.transactionreportservice.controller.response.TransactionQueryResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionReportResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionResponse;
 import com.cihan.transactionreportservice.mapper.DtoMapper;
 import com.cihan.transactionreportservice.service.TransactionService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +29,7 @@ public class TransactionServiceImpl implements TransactionService {
         return dtoMapper.toResponse(pspTransactionReportResponse);
     }
 
-    public TransactionListResponse getTransactionsByQuery(PSPTransactionListRequest request) {
+    public TransactionQueryResponse getTransactionsByQuery(PSPTransactionListRequest request) {
         PSPTransactionListResponse pspTransactionListResponse = pspTransactionClient.getTransactionByQuery(request);
         return dtoMapper.toResponse(pspTransactionListResponse);
     }

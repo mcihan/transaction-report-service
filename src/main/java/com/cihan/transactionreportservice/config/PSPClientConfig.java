@@ -20,7 +20,7 @@ public class PSPClientConfig {
 
     @Bean
     public RequestInterceptor PSPTransactionRequestInterceptor(AuthenticationService authenticationService) {
-        return new PSPTransactionRequestInterceptor(authenticationService, new LoginRequest(email, password));
+        return new PSPClientRequestInterceptor(authenticationService, new LoginRequest(email, password));
     }
 
 }

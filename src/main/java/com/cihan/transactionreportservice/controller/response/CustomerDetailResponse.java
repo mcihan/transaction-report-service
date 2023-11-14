@@ -1,4 +1,4 @@
-package com.cihan.transactionreportservice.controller.dto;
+package com.cihan.transactionreportservice.controller.response;
 
 import com.cihan.transactionreportservice.domain.dto.CustomerInfo;
 

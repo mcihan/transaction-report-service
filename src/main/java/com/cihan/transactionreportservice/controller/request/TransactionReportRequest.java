@@ -1,4 +1,4 @@
-package com.cihan.transactionreportservice.controller.dto;
+package com.cihan.transactionreportservice.controller.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;

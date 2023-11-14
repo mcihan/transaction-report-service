@@ -1,7 +1,15 @@
 package com.cihan.transactionreportservice.mapper;
 
-import com.cihan.transactionreportservice.client.dto.*;
-import com.cihan.transactionreportservice.controller.dto.*;
+import com.cihan.transactionreportservice.client.response.*;
+import com.cihan.transactionreportservice.client.request.PSPLoginRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionListRequest;
+import com.cihan.transactionreportservice.client.request.PSPTransactionReportRequest;
+import com.cihan.transactionreportservice.controller.request.TransactionQueryRequest;
+import com.cihan.transactionreportservice.controller.request.TransactionReportRequest;
+import com.cihan.transactionreportservice.controller.response.CustomerDetailResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionQueryResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionReportResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionResponse;
 import com.cihan.transactionreportservice.domain.dto.LoginRequest;
 import com.cihan.transactionreportservice.domain.dto.LoginResponse;
 import com.cihan.transactionreportservice.domain.dto.PaymentMethod;
@@ -25,8 +33,8 @@ public interface DtoMapper {
     @Mapping(source = "fromDate", target = "fromDate", qualifiedByName = "getFormattedDate")
     @Mapping(source = "paymentMethod", target = "paymentMethod", qualifiedByName = "getPaymentMethod", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
     @Mapping(source = "status", target = "status", qualifiedByName = "getStatus", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
-    PSPTransactionListRequest toPSPRequest(TransactionListRequest request);
-    TransactionListResponse toResponse(PSPTransactionListResponse response);
+    PSPTransactionListRequest toPSPRequest(TransactionQueryRequest request);
+    TransactionQueryResponse toResponse(PSPTransactionListResponse response);
     TransactionReportResponse toResponse(PSPTransactionReportResponse response);
     TransactionResponse toResponse(PSPTransactionResponse response);
 

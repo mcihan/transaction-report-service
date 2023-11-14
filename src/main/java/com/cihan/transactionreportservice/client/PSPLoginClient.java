@@ -1,7 +1,7 @@
 package com.cihan.transactionreportservice.client;
 
-import com.cihan.transactionreportservice.client.dto.PSPLoginRequest;
-import com.cihan.transactionreportservice.client.dto.PSPLoginResponse;
+import com.cihan.transactionreportservice.client.request.PSPLoginRequest;
+import com.cihan.transactionreportservice.client.response.PSPLoginResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

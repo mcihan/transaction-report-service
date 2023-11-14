@@ -1,6 +1,10 @@
 package com.cihan.transactionreportservice.controller;
 
-import com.cihan.transactionreportservice.controller.dto.*;
+import com.cihan.transactionreportservice.controller.request.TransactionQueryRequest;
+import com.cihan.transactionreportservice.controller.request.TransactionReportRequest;
+import com.cihan.transactionreportservice.controller.response.TransactionQueryResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionReportResponse;
+import com.cihan.transactionreportservice.controller.response.TransactionResponse;
 import com.cihan.transactionreportservice.mapper.DtoMapper;
 import com.cihan.transactionreportservice.service.TransactionService;
 import feign.QueryMap;
@@ -42,8 +46,8 @@ public class TransactionController {
     }
 
     @GetMapping("/query")
-    public ResponseEntity<TransactionListResponse> getTransactionsByQuery(@QueryMap @Valid TransactionListRequest request) {
-        TransactionListResponse response = transactionService.getTransactionsByQuery(dtoMapper.toPSPRequest(request));
+    public ResponseEntity<TransactionQueryResponse> getTransactionsByQuery(@QueryMap @Valid TransactionQueryRequest request) {
+        TransactionQueryResponse response = transactionService.getTransactionsByQuery(dtoMapper.toPSPRequest(request));
         return ResponseEntity.ok(response);
     }
 

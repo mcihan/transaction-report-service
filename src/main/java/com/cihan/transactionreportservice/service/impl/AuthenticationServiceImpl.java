@@ -1,15 +1,14 @@
 package com.cihan.transactionreportservice.service.impl;
 
 import com.cihan.transactionreportservice.client.PSPLoginClient;
-import com.cihan.transactionreportservice.client.dto.PSPLoginRequest;
-import com.cihan.transactionreportservice.client.dto.PSPLoginResponse;
+import com.cihan.transactionreportservice.client.request.PSPLoginRequest;
+import com.cihan.transactionreportservice.client.response.PSPLoginResponse;
 import com.cihan.transactionreportservice.domain.dto.LoginRequest;
 import com.cihan.transactionreportservice.domain.dto.LoginResponse;
 import com.cihan.transactionreportservice.mapper.DtoMapper;
 import com.cihan.transactionreportservice.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
