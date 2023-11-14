@@ -7,13 +7,13 @@
 - Open API
 - MapStruct
 
-## ABOUT PSP Client API
+## About PSP Client API
 
 - The PSP Client API token remains valid for a duration of 10 minutes.
 - This token is cached for **9 minutes and 45 seconds** (15 sec buffer to avoid a staled token), and it is automatically
   added as an authorization header to each request through an interceptor.
 
-## TEST REPORT API
+## Run/Testing the Application
 
 - **No manual login/authentication is required**. In the absence of a token, interceptors will automatically set it during
   the call.
