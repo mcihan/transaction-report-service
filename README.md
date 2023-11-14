@@ -32,16 +32,26 @@ Try out the API live using Swagger dashboard;
 
 ![img.png](doc/swagger-try.png)
 
-### Endpoints
+## Endpoints
 
 ![img.png](doc/swagger.png)
 
+
+## Test & Coverage
+- Includes unit test and integration/api tests.
+
+![img.png](doc/test.png)
+
+**Coverage :**  
+
+
+![img.png](doc/coverage.png)
  
 ## TODO
 
 - Add FeignClient decoder/deserializer for variousTransactionQueryResponse types.
 - api-key for secure service-to-service communication
 - Improve field types. and some fields still have underscores; remove the underscores.
-- Fail test scenarios.
+- Add fail test scenarios and improve coverage
 
 
